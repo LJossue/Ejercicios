@@ -10,6 +10,87 @@ namespace Ejercicios
     {
         static double x, y;
         static int menu;
+
+        /// ARREGLOS
+        public static void Notas()
+        {
+            string[] alumno = new string[5];
+            int[] parcial = new int[5];
+            int[] oral = new int[5];
+            int[] final = new int[5];
+            for (int a = 1; a < alumno.Length; a++)
+            {
+                Console.WriteLine("Ingrese el nombre del {0} alumno", a);
+                alumno[a] = Console.ReadLine();
+                Console.WriteLine("Ingrese su nota del parcial");
+                parcial[a] = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese su nota del examen oral");
+                oral[a] = int.Parse(Console.ReadLine());
+                Console.WriteLine("Ingrese su nota del examen final");
+                final[a] = int.Parse(Console.ReadLine());
+                int sumaresultado = parcial[a] + oral[a] + final[a];
+                int promedio = sumaresultado / 3;
+                if (promedio >= 7)
+                {
+                    Console.WriteLine($"El alumno {alumno[a]} APROBO, su promedio fue {promedio}");
+                }
+                else if (promedio < 7)
+                {
+                    Console.WriteLine($"El alumno {alumno[a]} REPROBO, su promedio fue {promedio}");
+                }
+
+                else if (promedio <= 0 || promedio > 10)
+                {
+                    Console.WriteLine("Error en el calculo");
+                }
+
+            }
+        }
+
+        public static void Clientes()
+        {
+            string[] nombre = new string[5];
+            string[] apellido = new string[5];
+            int[] edad = new int[5];
+            string[] sexo = new string[5];
+            int i;
+            for (i = 1; i < 6; i++)
+            {
+                Console.WriteLine("Ingrese los datos del {0} cliente \n", i);
+                Console.Write("Nombre : ");
+                nombre[i] = Console.ReadLine();
+                Console.Write("Apellido : ");
+                apellido[i] = Console.ReadLine();
+                Console.Write("Edad : ");
+                edad[i] = int.Parse(Console.ReadLine());
+                Console.Write("Sexo : ");
+                sexo[i] = Console.ReadLine();
+                Console.WriteLine("\nEl cliente {0} se registro con los siguientes datos:\n ", i);
+                Console.WriteLine($"Nombre: {nombre[i]}, Apellido: {apellido[i]}, Edad: {edad[i]}, Sexo: {sexo[i]}\n");
+            }
+        }
+
+        public static void Precios()
+        {
+            int cantidad;
+            double contador = 0;
+            Console.WriteLine("Ingrese la cantidad de productos");
+            cantidad = int.Parse(Console.ReadLine());
+            string[] producto = new string[cantidad];
+            double[] precio = new double[cantidad];
+            for (int a = 0; a < precio.Length; a++)
+            {
+                Console.WriteLine("Ingrese el nombre del {0} producto", a + 1);
+                producto[a] = Console.ReadLine();
+                Console.WriteLine("Ingrese el precio del {0} producto", a + 1);
+                precio[a] = double.Parse(Console.ReadLine());
+                contador = contador + precio[a];
+            }
+            Console.WriteLine("El total es " + contador);
+        }
+
+
+        /// METODOS
         public static void Divisas()
         {
             Console.WriteLine("1.- Cambio Pesos a Dolar");
